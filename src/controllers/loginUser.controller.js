@@ -19,6 +19,7 @@ const userLogin = async (req, res, next) => {
     if (!isUserExist)
       throw new ApiError(408, "Please Register the User First , then Login !");
 
+    // Here the users provided password and the object we get isUserExist.password they simply compare with each other.
     const isThisSameUser = await isUserExist.comparePassword(password);
     // Now if we get object , then we can directly call the comparePassword method because we define that method for Schema / instance
     // We only receive True or False from this , comparePassword return a Boolean value cause the bcrypt.compare() method returns true or false.
