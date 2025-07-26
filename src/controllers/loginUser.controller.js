@@ -66,3 +66,6 @@ const userLogin = async (req, res, next) => {
     next(error);
   }
 };
+
+
+export {userLogin}
