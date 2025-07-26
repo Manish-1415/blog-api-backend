@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import { ApiError } from "../utilitys/ApiError.js";
 import { ApiResponse } from "../utilitys/ApiResponse.js";
 
+
 const registerUser = async (req , res , next) => {
   try {
     const { name, email, password } = req.body;

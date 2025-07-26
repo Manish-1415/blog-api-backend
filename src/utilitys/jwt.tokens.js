@@ -1,10 +1,10 @@
 import jwt from "jsonwebtoken";
 
-export const accessTokenGeneration = (name, email) => {
+export const accessTokenGeneration = (email , _id) => {
   return jwt.sign(
     {
-      name: name,
       email: email,
+      _id: _id
     },
 
     process.env.ACCESS_TOKEN_SECRET,
@@ -13,7 +13,7 @@ export const accessTokenGeneration = (name, email) => {
   );
 };
 
-export const refreshToken = (_id) => {
+export const refreshTokenGeneration = (_id) => {
   return jwt.sign(
     {
       _id: _id,
