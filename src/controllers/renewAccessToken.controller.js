@@ -21,7 +21,7 @@ const refreshTokenGenerate = async (req, res, next) => {
 
     if (!findUserFromDB) throw new ApiError(404, "User Not Found !");
 
-    if(findUserFromDB.refreshToken !== refreshToken) throw new ApiError(402 , "Refresh Tokens Did Not Match");
+    if(findUserFromDB.refreshToken !== refreshToken) throw new ApiError(403 , "Refresh Tokens Did Not Match");
 
     const newAccessToken = accessTokenGeneration(findUserFromDB.email , findUserFromDB._id);
 

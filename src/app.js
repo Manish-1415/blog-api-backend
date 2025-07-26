@@ -18,6 +18,6 @@ import refreshRouter from "./routes/refresh.route.js"
 
 app.use("/api/v1/users", userRouter);
 
-app.use("/api/v1/auth", refreshRouter);
+app.use("/auth", refreshRouter);
 
 export {app}
