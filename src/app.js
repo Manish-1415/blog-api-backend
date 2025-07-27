@@ -25,8 +25,11 @@ app.use("/api/v1/blogs", blogRouter);
 
 
 
+// We import and use error middleware at the last
+import errorMiddleware from "./middlewares/error.middleware.js";
 
-app.use(error.middleware.js);
+
+app.use(errorMiddleware);
 
 
 
