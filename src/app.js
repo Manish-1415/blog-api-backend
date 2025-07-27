@@ -15,9 +15,15 @@ app.use(cookieParser());
 
 import userRouter from "./routes/user.route.js";
 import refreshRouter from "./routes/refresh.route.js"
+import blogRouter from "./routes/blog.route.js";
 
 app.use("/api/v1/users", userRouter);
 
 app.use("/auth", refreshRouter);
+
+app.use("/api/v1/blogs", blogRouter);
+
+
+
 
 export {app}
