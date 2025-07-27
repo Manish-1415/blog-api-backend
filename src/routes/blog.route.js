@@ -4,17 +4,19 @@ import { deleteBlog } from "../controllers/deleteBlog.controller.js";
 import { getAllBlogs } from "../controllers/getAllBlogs.controller.js";
 import { getBlogById } from "../controllers/getBlogById.controller.js";
 import { updateBlog } from "../controllers/updateBlog.controller.js";
+import authMiddleware from "../middlewares/verifyJwt.middleware.js";
+// named jwtVerify middleware as authMiddleware
 
 const router = Router();
 
-router.route("/").post(createBlog);
+router.route("/").post(authMiddleware, createBlog);
 
-router.route("/:id").delete(deleteBlog);
+router.route("/:id").delete(authMiddleware, deleteBlog);
 
 router.route("/").get(getAllBlogs);
 
 router.route("/:id").get(getBlogById);
 
-router.route("/:id").patch(updateBlog);
+router.route("/:id").patch(authMiddleware, updateBlog);
 
 export { router };

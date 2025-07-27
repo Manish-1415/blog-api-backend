@@ -11,6 +11,7 @@ const verifyAuth = (req, res, next) => {
         401,
         "No token Provided , Please provide correct Token"
       );
+      //When frontend get this response , it will simply call refreshAccessToken controller by its route , get new access token send it in res , then it will perform this api req again. 
 
     const accessToken = ifTokenExist.split(" ")[1];
 
@@ -35,4 +36,4 @@ const verifyAuth = (req, res, next) => {
   }
 };
 
-export { verifyAuth };
+export default verifyAuth;
