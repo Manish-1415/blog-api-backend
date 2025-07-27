@@ -15,6 +15,6 @@ router.route("/").get(getAllBlogs);
 
 router.route("/:id").get(getBlogById);
 
-router.route("/:id").put(updateBlog);
+router.route("/:id").patch(updateBlog);
 
 export { router };
