@@ -9,10 +9,10 @@ const getBlogById = async (req, res, next) => {
     if (!blogId)
       throw new ApiError(408, "Please Provide Id, if u want blog from ID");
 
-    const getBlogFromDBById = await Blog.findById(blogId);
+    const getBlogFromDBById = await Blog.findById(blogId).populate("author","name");
 
     if (!getBlogFromDBById)
-      throw new ApiError(400, "Provided ID's Blog Not Present In the DB");
+      throw new ApiError(404, "Provided ID's Blog Not Present In the DB");
 
     return res
       .status(200)

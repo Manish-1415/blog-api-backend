@@ -4,7 +4,7 @@ import { ApiResponse } from "../utilitys/ApiResponse.js";
 
 const getAllBlogs = async (req, res, next) => {
   try {
-    const getBlogsFromDB = await Blog.find();
+    const getBlogsFromDB = await Blog.find().populate("author", "name");
 
     if (getBlogsFromDB.length <= 0) throw new ApiError(404, "No Blogs Present in DB");
 
