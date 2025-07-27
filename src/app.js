@@ -26,4 +26,9 @@ app.use("/api/v1/blogs", blogRouter);
 
 
 
+app.use(error.middleware.js);
+
+
+
+
 export {app}
