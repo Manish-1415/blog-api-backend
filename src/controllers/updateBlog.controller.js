@@ -19,6 +19,13 @@ const updateBlog = async (req, res, next) => {
 
     if (!findBlogByID) throw new ApiError(404, "Blog not found");
 
+    if (findBlogByID.author.toString() !== req.user._id.toString())
+      throw new ApiError(
+        400,
+        "Unauthorized Action , You dont have access to update the blogs of other user"
+      );
+    // Here we simply validate that if someone have access token , but they are not the author so they cannot ,manipulate the other users data.
+
     findBlogByID.title = title.trim();
     findBlogByID.content = content.trim();
 

@@ -12,7 +12,7 @@ const createBlog = async (req, res, next) => {
     const blogCreation = await Blog.create({
       title,
       content,
-      author: author || "",
+      author: req.user._id,
     });
 
     if (!blogCreation)

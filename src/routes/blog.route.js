@@ -19,4 +19,4 @@ router.route("/:id").get(getBlogById);
 
 router.route("/:id").patch(authMiddleware, updateBlog);
 
-export { router };
+export {router} ;
